@@ -21,10 +21,11 @@ struct HomePageView: View {
                     .border(.black)
                     .padding([.leading, .trailing], 10)
                 
-                // adjust buttons ui
                 Button("Translate") {
-                    // add action
-                    translatedText = "Hello World"
+                    // add functionality
+                    //translatedText = "Hello World"
+                    
+                    translate(input: originalText)
                 }
                 .frame(height: 30)
                 .background(.blue)
@@ -48,6 +49,30 @@ struct HomePageView: View {
         }
         .navigationBarTitle("Translate Me")
     }
+    
+    private func translate(input : String) {
+        
+        let urlString = "https://api.mymemory.translated.net/get?q=Hello%20World!&langpair=en|it"
+        
+        Task {
+            let url = URL(string: urlString)!
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                
+                let translateResponse = try JSONDecoder().decode(ResponseTranslate.self, from: data)
+                
+                let translate = translateResponse.responseData
+                print(translate)
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+    
+    
+    
 }
 
 #Preview {
