@@ -11,7 +11,7 @@ Time spent: **2** hours spent in total
 The following **required** functionality is completed:
 
 - [X] Users open the app to a TranslationMe home page with a place to enter a word, phrase or sentence, a button to translate, and another field that should initially be empty
-- [ ] When users tap translate, the word written in the upper field translates in the lower field. The requirement is only that you can translate from one language to another.
+- [X] When users tap translate, the word written in the upper field translates in the lower field. The requirement is only that you can translate from one language to another.
 - [ ] A history of translations can be stored (in a scroll view in the same screen, or a new screen)
 - [ ] The history of translations can be erased
  

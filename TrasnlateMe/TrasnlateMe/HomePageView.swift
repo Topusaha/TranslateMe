@@ -25,7 +25,9 @@ struct HomePageView: View {
                     // add functionality
                     //translatedText = "Hello World"
                     
-                    translate(input: originalText)
+                    Task {
+                        await translate(input: originalText)
+                    }
                 }
                 .frame(height: 30)
                 .background(.blue)
@@ -50,26 +52,22 @@ struct HomePageView: View {
         .navigationBarTitle("Translate Me")
     }
     
-    private func translate(input : String) {
+    private func translate(input: String) async {
+        let urlString = "https://api.mymemory.translated.net/get?q=\(input)&langpair=en|it"
         
-        let urlString = "https://api.mymemory.translated.net/get?q=Hello%20World!&langpair=en|it"
-        
-        Task {
+        do {
             let url = URL(string: urlString)!
-            do {
-                let (data, _) = try await URLSession.shared.data(from: url)
-                
-                let translateResponse = try JSONDecoder().decode(ResponseTranslate.self, from: data)
-                
-                let translate = translateResponse.responseData
-                print(translate)
-            }
-            catch {
-                print(error.localizedDescription)
-            }
+            let (data, _) = try await URLSession.shared.data(from: url)
+            
+            let translateResponse = try JSONDecoder().decode(APIResponse.self, from: data)
+            
+            translatedText = translateResponse.responseData.translatedText
+            print("Translated Text: \(translatedText)")
+        } catch {
+            print("Error: \(error.localizedDescription)")
         }
-        
     }
+
     
     
     

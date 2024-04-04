@@ -39,7 +39,6 @@
 		04DFAA2D2BBDE9A200CA66EB = {
 			isa = PBXGroup;
 			children = (
-				046A34892BBE172600AE5946 /* Translate.swift */,
 				04DFAA382BBDE9A200CA66EB /* TrasnlateMe */,
 				04DFAA372BBDE9A200CA66EB /* Products */,
 			);
@@ -56,6 +55,7 @@
 		04DFAA382BBDE9A200CA66EB /* TrasnlateMe */ = {
 			isa = PBXGroup;
 			children = (
+				046A34892BBE172600AE5946 /* Translate.swift */,
 				04DFAA392BBDE9A200CA66EB /* TrasnlateMeApp.swift */,
 				046A34852BBDF0A600AE5946 /* HomePageView.swift */,
 				046A34872BBE085A00AE5946 /* SavedTranslationView.swift */,
