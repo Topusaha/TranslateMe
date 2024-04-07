@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomePageView: View {
     
+    @State var translateManager: TranslateManager = TranslateManager()
+    
     @State private var originalText : String = ""
     @State private var translatedText : String = ""
     
@@ -26,8 +28,20 @@ struct HomePageView: View {
                     //translatedText = "Hello World"
                     
                     Task {
-                        await translate(input: originalText)
+                        let res = await translate(input: originalText)
+                        
+                        print(res)
+                        
+                        
+                        translateManager.addData(originalText: originalText, translatedText: res)
+                        
                     }
+                        
+                    
+                    
+                    
+                    
+                    
                 }
                 .frame(height: 30)
                 .background(.blue)
@@ -41,7 +55,7 @@ struct HomePageView: View {
                 
                 
                 
-                NavigationLink(destination: SavedTranslationView()) {
+                NavigationLink(destination: SavedTranslationView(translateManager: translateManager)) {
                         Text("View Saved Translations")
                     }
                 .padding(.top, 30)
@@ -52,7 +66,7 @@ struct HomePageView: View {
         .navigationBarTitle("Translate Me")
     }
     
-    private func translate(input: String) async {
+    private func translate(input: String) async -> String {
         let urlString = "https://api.mymemory.translated.net/get?q=\(input)&langpair=en|it"
         
         do {
@@ -63,9 +77,12 @@ struct HomePageView: View {
             
             translatedText = translateResponse.responseData.translatedText
             print("Translated Text: \(translatedText)")
+            return translatedText
         } catch {
             print("Error: \(error.localizedDescription)")
         }
+        
+        return ""
     }
 
     

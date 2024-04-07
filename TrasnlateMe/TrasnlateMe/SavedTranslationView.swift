@@ -8,11 +8,33 @@
 import SwiftUI
 
 struct SavedTranslationView: View {
+    
+    @ObservedObject private var translateManager: TranslateManager
+  
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            
+            List (translateManager.translations) {item in
+                Text("\(item)")
+            }
+            
+            
+            Button("Delete History") {
+                translateManager.deleteAllDataInCollection()
+            }
+            
+        }
     }
+    
+    init(translateManager: TranslateManager) {
+        self.translateManager = translateManager
+        self.translateManager.getData()
+    }
+    
+   
 }
 
 #Preview {
-    SavedTranslationView()
+    SavedTranslationView(translateManager: TranslateManager())
 }

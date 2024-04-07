@@ -6,9 +6,18 @@
 //
 
 import SwiftUI
+import FirebaseCore
+
+
 
 @main
 struct TrasnlateMeApp: App {
+    
+    init() { // <-- Add an init
+            FirebaseApp.configure() // <-- Configure Firebase app
+        }
+    
+    
     var body: some Scene {
         WindowGroup {
             HomePageView()

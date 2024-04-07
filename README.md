@@ -12,8 +12,8 @@ The following **required** functionality is completed:
 
 - [X] Users open the app to a TranslationMe home page with a place to enter a word, phrase or sentence, a button to translate, and another field that should initially be empty
 - [X] When users tap translate, the word written in the upper field translates in the lower field. The requirement is only that you can translate from one language to another.
-- [ ] A history of translations can be stored (in a scroll view in the same screen, or a new screen)
-- [ ] The history of translations can be erased
+- [X] A history of translations can be stored (in a scroll view in the same screen, or a new screen)
+- [X] The history of translations can be erased
  
 The following **optional** features are implemented:
 
@@ -26,15 +26,11 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
-
-Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove this reminder once you upload your README. 
-
-[Guide]](https://www.youtube.com/watch?v=GA92eKlYio4) .
+https://www.loom.com/share/2914659ff9eb40ca9882b0175762c9f4?sid=01c924b0-b482-4634-b1e7-0b83d3245df9
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+One thing I had difficulties with is making sure everything is running on the propper thread. Another thing that I have to troubleshoot is inspecting why the API is not working properly. It is not able to translate for all words.
 
 ## License
 
