@@ -20,21 +20,17 @@ The following **optional** features are implemented:
 - [ ] Add a variety of choices for the languages
 - [ ] Add UI flair
 
-The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
-
 ## Video Walkthrough
 
-https://www.loom.com/share/2914659ff9eb40ca9882b0175762c9f4?sid=01c924b0-b482-4634-b1e7-0b83d3245df9
+https://www.loom.com/share/d75b504727eb4f338721125699c8eabd?sid=5b8ed136-a556-4e2b-812f-e4a9ea5569fe
 
 ## Notes
 
-One thing I had difficulties with is making sure everything is running on the propper thread. Another thing that I have to troubleshoot is inspecting why the API is not working properly. It is not able to translate for all words.
+One thing I had difficulties with is making sure everything is running on the propper thread. Another thing that I have to troubleshoot is inspecting why the API is not working properly. It is not able to translate for all words. Fixed it by decoding the response better.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2024] [Topu Saha]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
